@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .product {
+      display: flex;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      max-width: 150px;
+      border-radius: 8px;
+    }
+
+    .details {
+      margin-left: 20px;
+      flex-grow: 1;
+    }
+
+    .details h2 {
+      margin: 0 0 10px;
+    }
+
+    .price {
+      color: green;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .add-to-cart {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Collection pour homme</h1>
+  <div class="product-list">
+    
+    <!-- Product 1 -->
+    <div class="product">
+      <img src="https://imgur.com/k8Vv425.jpg" alt="Product 1">
+      <div class="details">
+        <h2>Tennis Adidas</h2>
+        <p class="price">$29.99</p>
+        <p>Short description for product one. It's stylish, functional, and affordable.</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+      <img src="https://imgur.com/gwd853I.jpg" alt="Product 2">
+      <div class="details">
+        <h2>Pantalon Jeans</h2>
+        <p class="price">$9.99</p>
+        <p>This product is a great value and very popular among customers worldwide.</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product">
+      <img src="https://imgur.com/MqXf37H.jpg" alt="Product 3">
+      <div class="details">
+        <h2>Chaussure</h2>
+        <p class="price">$69.99</p>
+        <p>Premium quality and built to last. Highly recommended for professionals.</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
