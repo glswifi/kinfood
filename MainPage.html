@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Store Collections</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .collections {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .product-image {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product-name {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin: 10px 0 5px 0;
+      color: #222;
+    }
+    .product-price {
+      color: #b12704;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    .product-desc {
+      font-size: 0.9em;
+      color: #555;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Store Collections</h1>
+
+  <div class="collections">
+    <div class="product-card">
+      <img class="product-image" src="https://via.placeholder.com/220x150?text=Product+1" alt="Product 1" />
+      <div class="product-name">Classic Leather Wallet</div>
+      <div class="product-price">$29.99</div>
+      <div class="product-desc">Premium quality leather wallet with multiple card slots and a sleek design.</div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="https://via.placeholder.com/220x150?text=Product+2" alt="Product 2" />
+      <div class="product-name">Wireless Earbuds</div>
+      <div class="product-price">$59.99</div>
+      <div class="product-desc">Comfortable wireless earbuds with high-fidelity sound and long battery life.</div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="https://via.placeholder.com/220x150?text=Product+3" alt="Product 3" />
+      <div class="product-name">Smart Fitness Watch</div>
+      <div class="product-price">$99.99</div>
+      <div class="product-desc">Track your health and workouts with this sleek and durable smartwatch.</div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src=https://drive.google.com/uc?export=view&id=1V-N6AEDDgvTnelX2n-mk59Y_pY9DC1hI" alt="Product 4" />
+      <div class="product-name">Eco-Friendly Water Bottle</div>
+      <div class="product-price">$15.99</div>
+      <div class="product-desc">Reusable water bottle made from sustainable materials, keeps drinks cold for hours.</div>
+    </div>
+
+  </div>
+</body>
+</html>
