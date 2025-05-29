@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Circular Motion + Typing Text + Skip Button</title>
   <style>
     body {
@@ -91,7 +91,48 @@
     .skip-button:hover {
       background-color: #ccc;
     }
-    
+
+    /* Responsive styles */
+    @media (max-width: 480px) {
+      .container {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 40px;
+      }
+
+      .circle {
+        width: 35px;
+        height: 35px;
+        animation: orbit-mobile 4s linear infinite, colorShift 4s linear infinite;
+      }
+
+      @keyframes orbit-mobile {
+        0% {
+          transform: rotate(0deg) translateX(80px) rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg) translateX(80px) rotate(-360deg);
+        }
+      }
+
+      .typing {
+        font-size: 18px;
+        width: 180px;
+        animation: typing-mobile 4s steps(18, end) forwards, blink 0.75s step-end infinite;
+      }
+
+      @keyframes typing-mobile {
+        from { width: 0; }
+        to { width: 180px; }
+      }
+
+      .skip-button {
+        bottom: 15px;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 25px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -100,8 +141,7 @@
     <div class="typing">Ici c'est KINFOOD...</div>
   </div>
 
-<button class="skip-button" onclick="window.location.href='https://google.com/';">Skip</button>
-
+  <button class="skip-button" onclick="window.location.href='https://google.com/';">Skip</button>
 
   <script>
     function scrollToSection() {
