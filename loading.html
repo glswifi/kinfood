@@ -1,110 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Circular Motion Typing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circular Motion Animation</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background: #121212;
+      color: #ffffff;
       font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       overflow: hidden;
-      text-align: center;
     }
 
-    .circle-container {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      margin-bottom: 40px;
-    }
-
-    .moving-circle {
-      width: 30px;
-      height: 30px;
-      background: #00f0ff;
+    .circle {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: circular-motion 4s linear infinite;
+      background: red;
+      animation: spin 3s linear infinite, colorChange 5s linear infinite;
+      margin-bottom: 20px;
     }
 
-    @keyframes circular-motion {
-      0% {
-        transform: rotate(0deg) translateX(90px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translateX(90px) rotate(-360deg);
-      }
+    @keyframes spin {
+      0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+    }
+
+    @keyframes colorChange {
+      0% { background-color: red; }
+      25% { background-color: yellow; }
+      50% { background-color: green; }
+      75% { background-color: blue; }
+      100% { background-color: red; }
     }
 
     .typing-text {
-      font-size: 1.4rem;
       width: 80%;
-      max-width: 400px;
+      max-width: 300px;
+      font-size: 1.2em;
       border-right: 2px solid white;
       white-space: nowrap;
       overflow: hidden;
-      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+      animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
     }
 
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      from { width: 0; }
+      to { width: 80%; }
     }
 
     @keyframes blink {
-      50% { border-color: transparent }
+      50% { border-color: transparent; }
     }
 
-    .skip-button {
+    .skip-btn {
       position: absolute;
-      bottom: 30px;
+      bottom: 40px;
       padding: 12px 24px;
-      background: #ffffff22;
-      color: white;
-      border: 2px solid white;
+      background-color: #ffffff;
+      color: #121212;
+      border: none;
       border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
+      font-size: 1em;
+      text-decoration: none;
+      transition: background-color 0.3s;
     }
 
-    .skip-button:hover {
-      background: #ffffff44;
+    .skip-btn:hover {
+      background-color: #ccc;
     }
 
     @media (max-width: 600px) {
-      .circle-container {
-        width: 150px;
-        height: 150px;
-      }
-
-      .moving-circle {
-        width: 20px;
-        height: 20px;
-      }
-
       .typing-text {
-        font-size: 1.1rem;
+        font-size: 1em;
+      }
+
+      .circle {
+        width: 80px;
+        height: 80px;
+      }
+
+      .skip-btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="circle-container">
-    <div class="moving-circle"></div>
-  </div>
-  <div class="typing-text">Welcome to our mobile web experience...</div>
-  <button class="skip-button" onclick="alert('Skipped!')">Skip</button>
+
+  <div class="circle"></div>
+
+  <div class="typing-text">Welcome to our mobile experience!</div>
+
+  <a class="skip-btn" href="https://example.com">Skip</a>
+
 </body>
 </html>
