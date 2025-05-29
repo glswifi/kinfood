@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Store Collections</title>
+  <title>Nos Collections</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
@@ -11,14 +11,13 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background-color: #f9f9f9;
       padding-top: 60px;
-      display: flex;
     }
 
-    /* Fixed header */
+    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -29,45 +28,40 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      padding: 0 15px;
       z-index: 1001;
     }
 
     .header-content {
-      position: relative;
-      width: 100%;
-      text-align: center;
-      font-size: 1.3em;
+      font-size: 1.2em;
       font-weight: bold;
       color: #333;
+      flex-grow: 1;
+      text-align: center;
     }
 
-    .header-content .icon-left {
-      position: absolute;
-      left: 20px;
-      font-size: 1.5em;
+    .icon-left {
       color: #4CAF50;
+      font-size: 1.5em;
     }
 
     .hamburger {
-      position: absolute;
-      right: 20px;
       font-size: 1.5em;
-      cursor: pointer;
       color: #333;
-      z-index: 1002;
+      cursor: pointer;
     }
 
-    /* Sidebar */
+    /* Sidebar for mobile */
     .sidebar {
       position: fixed;
-      top: 60px;
-      left: -220px;
-      width: 200px;
-      height: 100vh;
+      top: 0;
+      left: -250px;
+      width: 220px;
+      height: 100%;
       background: #fff;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-      padding-top: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.15);
+      padding-top: 60px;
       transition: left 0.3s ease;
       z-index: 1000;
     }
@@ -88,35 +82,28 @@
       background-color: #f0f0f0;
     }
 
-    /* Main content */
-    .main {
-      margin-left: 0;
-      padding: 20px;
-      flex: 1;
-      transition: margin-left 0.3s ease;
-    }
-
+    /* Collection Layout */
     .collections {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 15px;
+      padding: 20px;
     }
 
     .product-card {
       background: white;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      width: 220px;
+      width: 90%;
+      max-width: 300px;
       padding: 15px;
       text-align: center;
       transition: transform 0.2s;
     }
 
     .product-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: scale(1.03);
     }
 
     .product-image {
@@ -139,7 +126,7 @@
       min-height: 40px;
     }
 
-    /* WhatsApp floating button */
+    /* WhatsApp Floating */
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -147,14 +134,14 @@
       background-color: #25D366;
       color: white;
       border-radius: 50%;
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 24px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
+      z-index: 999;
     }
 
     .whatsapp-float:hover {
@@ -164,10 +151,10 @@
     /* Footer */
     footer {
       text-align: center;
-      margin-top: 40px;
       padding: 20px;
       background-color: #fff;
       border-top: 1px solid #eee;
+      margin-top: 40px;
     }
 
     .social-icons a {
@@ -180,23 +167,15 @@
     .social-icons a:hover {
       color: #000;
     }
-
-    @media (min-width: 768px) {
-      .main.shifted {
-        margin-left: 200px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div class="header-content">
-      <i class="fas fa-store icon-left"></i>
-      Nos Collections
-      <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
-    </div>
+    <i class="fas fa-store icon-left"></i>
+    <div class="header-content">Nos Collections</div>
+    <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
   </header>
 
   <!-- Sidebar -->
@@ -208,23 +187,21 @@
   </div>
 
   <!-- Main Content -->
-  <div class="main" id="mainContent">
-    <div class="collections">
-      <div class="product-card">
-        <a href="https://glswifi.github.io/kinfood/Clothing">
-          <img class="product-image" src="https://i.imgur.com/Tiodx4b.jpg" alt="Clothing Collection" />
-        </a>
-        <div class="product-name">Habillement</div>
-        <div class="product-desc">Les événements les plus formels, costume de ville trois pièces avec une chemise unie et une cravate.</div>
-      </div>
+  <div class="collections">
+    <div class="product-card">
+      <a href="https://glswifi.github.io/kinfood/Clothing">
+        <img class="product-image" src="https://i.imgur.com/Tiodx4b.jpg" alt="Habillement" />
+      </a>
+      <div class="product-name">Habillement</div>
+      <div class="product-desc">Les événements les plus formels, costume de ville trois pièces avec une chemise unie et une cravate.</div>
+    </div>
 
-      <div class="product-card">
-        <a href="https://glswifi.github.io/kinfood/Electronic">
-          <img class="product-image" src="https://imgur.com/yZoXKyX.jpg" alt="Electronic Devices" />
-        </a>
-        <div class="product-name">Appareils électroniques</div>
-        <div class="product-desc">Appareils de l'électronique de loisirs (télévision, lecteur DVD, appareil photo, ordinateur, téléphone, photocopieur, projecteur…)</div>
-      </div>
+    <div class="product-card">
+      <a href="https://glswifi.github.io/kinfood/Electronic">
+        <img class="product-image" src="https://imgur.com/yZoXKyX.jpg" alt="Électronique" />
+      </a>
+      <div class="product-name">Appareils électroniques</div>
+      <div class="product-desc">Télévision, lecteur DVD, appareil photo, ordinateur, téléphone, photocopieur, projecteur…</div>
     </div>
   </div>
 
@@ -236,23 +213,29 @@
   <!-- Footer -->
   <footer>
     <div class="social-icons">
-      <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
     </div>
     <p>&copy; 2025 Nos Collections. Tous droits réservés.</p>
   </footer>
 
-  <!-- JavaScript for sidebar toggle -->
+  <!-- Sidebar Toggle Script -->
   <script>
     const sidebar = document.getElementById('sidebar');
     const hamburger = document.getElementById('hamburgerBtn');
-    const main = document.getElementById('mainContent');
 
     hamburger.addEventListener('click', () => {
       sidebar.classList.toggle('open');
-      main.classList.toggle('shifted');
+    });
+
+    // Optional: click outside sidebar to close (for mobile UX)
+    window.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
     });
   </script>
+
 </body>
 </html>
