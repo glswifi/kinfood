@@ -140,6 +140,13 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
+    @media (max-width: 600px) {
+      .horizontal-card {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
     .image-section {
       flex: 1;
       display: flex;
@@ -211,6 +218,9 @@
       text-decoration: none;
       border-radius: 5px;
       transition: background 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 1em;
     }
 
     .detail-btn:hover {
@@ -238,14 +248,37 @@
       border-radius: 10px;
       cursor: zoom-out;
     }
+
+    .cart-link {
+      color: #4CAF50;
+      font-weight: bold;
+      margin-left: 15px;
+      text-decoration: none;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cart-link:hover {
+      color: #388e3c;
+    }
   </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
 </head>
 <body>
 
   <header>
     <i class="fas fa-store icon-left"></i>
     <div class="header-content">Collection pour Homme</div>
-    <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
+    <a href="cart.html" class="cart-link" aria-label="Voir le panier">
+      <i class="fas fa-shopping-cart"></i> Panier
+    </a>
+    <i class="fas fa-bars hamburger" id="hamburgerBtn" tabindex="0" role="button" aria-label="Ouvrir le menu"></i>
   </header>
 
   <div class="sidebar" id="sidebar">
@@ -258,93 +291,144 @@
   <div class="collections horizontal">
     <div class="product-card horizontal-card">
       <div class="image-section">
-        <img src="https://imgur.com/k8Vv425.jpg" class="product-image main-img" alt="Montre Classique">
+        <img src="https://i.imgur.com/k8Vv425.jpg" class="product-image main-img" alt="Montre Classique" />
         <div class="thumbnail-row">
-          <img src="https://imgur.com/rjROC85.jpg" class="thumb" data-main="https://imgur.com/rjROC85.jpg" alt="Vue 1A">
-          <img src="https://imgur.com/k8Vv425.jpg" class="thumb" data-main="https://imgur.com/k8Vv425.jpg" alt="Vue 1B">
+          <img src="https://i.imgur.com/rjROC85.jpg" class="thumb" data-main="https://i.imgur.com/rjROC85.jpg" alt="Vue 1A" />
+          <img src="https://i.imgur.com/k8Vv425.jpg" class="thumb" data-main="https://i.imgur.com/k8Vv425.jpg" alt="Vue 1B" />
         </div>
       </div>
       <div class="info-section">
         <div class="product-name">Montre Classique</div>
         <div class="product-desc">Montre en acier inoxydable avec bracelet en cuir véritable. Élégante et robuste.</div>
         <div class="product-price">Prix : 59,99 €</div>
-        <a href="#" class="detail-btn">Ajouter au panier</a>
+        <button class="detail-btn">Ajouter au panier</button>
       </div>
     </div>
 
     <div class="product-card horizontal-card">
       <div class="image-section">
-        <img src="https://via.placeholder.com/300x200?text=Produit+2" class="product-image main-img" alt="Chemise Slim Fit">
+        <img src="https://via.placeholder.com/300x200?text=Produit+2" class="product-image main-img" alt="Chemise Slim Fit" />
         <div class="thumbnail-row">
-          <img src="https://via.placeholder.com/80x60?text=2A" class="thumb" data-main="https://via.placeholder.com/300x200?text=Produit+2" alt="Vue 2A">
-          <img src="https://via.placeholder.com/80x60?text=2B" class="thumb" data-main="https://via.placeholder.com/300x200?text=Produit+2B" alt="Vue 2B">
+          <img src="https://via.placeholder.com/80x60?text=2A" class="thumb" data-main="https://via.placeholder.com/300x200?text=Produit+2" alt="Vue 2A" />
+          <img src="https://via.placeholder.com/80x60?text=2B" class="thumb" data-main="https://via.placeholder.com/300x200?text=Produit+2" alt="Vue 2B" />
         </div>
       </div>
       <div class="info-section">
         <div class="product-name">Chemise Slim Fit</div>
-        <div class="product-desc">Chemise élégante, coupe moderne, parfaite pour les occasions professionnelles.</div>
+        <div class="product-desc">Chemise blanche en coton 100%, coupe slim pour un style moderne.</div>
         <div class="product-price">Prix : 39,90 €</div>
-        <a href="#" class="detail-btn">Ajouter au panier</a>
+        <button class="detail-btn">Ajouter au panier</button>
       </div>
     </div>
   </div>
 
-  <a class="whatsapp-float" href="https://wa.me/1234567890" target="_blank">
+  <a href="https://wa.me/212678461553" target="_blank" class="whatsapp-float" aria-label="Contact WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <footer>
+    <p>Contactez-nous au 0660 67 72 63 - <a href="mailto:ayoub.kartit1999@gmail.com">ayoub.kartit1999@gmail.com</a></p>
     <div class="social-icons">
-      <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://tiktok.com/@yourpage" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in" aria-label="LinkedIn"></i></a>
     </div>
-    <h5>&copy; 2025 par GLS SMARTHOME Tous droits réservés.</h5>
   </footer>
 
   <!-- Image Zoom Overlay -->
-  <div class="image-overlay" id="imageOverlay">
-    <img src="" alt="Zoom" id="zoomedImage">
+  <div id="imageOverlay" class="image-overlay" role="dialog" aria-modal="true" aria-label="Agrandir l'image">
+    <img src="" alt="" />
   </div>
 
   <script>
-    const sidebar = document.getElementById('sidebar');
-    const hamburger = document.getElementById('hamburgerBtn');
+    // Firebase Config
+    const firebaseConfig = {
+  apiKey: "AIzaSyCbUMHr-1pWWlhlFuyG8E4AdfOYn5tWIhM",
+  authDomain: "food-details-554cf.firebaseapp.com",
+  databaseURL: "https://food-details-554cf-default-rtdb.firebaseio.com",
+  projectId: "food-details-554cf",
+  storageBucket: "food-details-554cf.firebasestorage.app",
+  messagingSenderId: "617865162295",
+  appId: "1:617865162295:web:e8e44fc0c45146ae2819b2",
+  measurementId: "G-VGYFY56WSV"
+    };
 
-    hamburger.addEventListener('click', () => {
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Sidebar toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburgerBtn.addEventListener('click', () => {
       sidebar.classList.toggle('open');
     });
 
-    window.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-        sidebar.classList.remove('open');
+    // Accessibility: allow toggle via keyboard (Enter or Space)
+    hamburgerBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        sidebar.classList.toggle('open');
       }
     });
 
-    document.querySelectorAll('.product-card').forEach(card => {
-      const mainImg = card.querySelector('.main-img');
-      const thumbs = card.querySelectorAll('.thumb');
+    // Thumbnail image switch
+    document.querySelectorAll('.thumbnail-row').forEach(row => {
+      row.addEventListener('click', e => {
+        if (e.target.classList.contains('thumb')) {
+          const mainImg = row.closest('.image-section').querySelector('.main-img');
+          mainImg.src = e.target.dataset.main;
+          mainImg.alt = e.target.alt;
+        }
+      });
+    });
 
-      thumbs.forEach(thumb => {
-        thumb.addEventListener('click', () => {
-          mainImg.src = thumb.dataset.main;
+    // Image zoom overlay
+    const imageOverlay = document.getElementById('imageOverlay');
+    const overlayImg = imageOverlay.querySelector('img');
+
+    document.querySelectorAll('.product-image').forEach(img => {
+      img.addEventListener('click', () => {
+        overlayImg.src = img.src;
+        overlayImg.alt = img.alt;
+        imageOverlay.style.display = 'flex';
+        // Trap focus inside overlay if needed (for accessibility)
+      });
+    });
+
+    imageOverlay.addEventListener('click', () => {
+      imageOverlay.style.display = 'none';
+      overlayImg.src = '';
+      overlayImg.alt = '';
+    });
+
+    // Add to cart button Firestore logic
+    document.querySelectorAll('.detail-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const card = btn.closest('.product-card');
+        const name = card.querySelector('.product-name').innerText;
+        const priceText = card.querySelector('.product-price').innerText;
+        const price = priceText.replace(/[^\d.,]/g, '').replace(',', '.');
+        const img = card.querySelector('.main-img').src;
+
+        db.collection('cart').add({
+          name: name,
+          price: parseFloat(price),
+          image: img,
+          quantity: 1,
+          addedAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .then(() => {
+          alert(`${name} a été ajouté au panier !`);
+        })
+        .catch((error) => {
+          alert('Erreur lors de l\'ajout au panier : ' + error);
         });
       });
     });
-
-    const overlay = document.getElementById('imageOverlay');
-    const zoomedImage = document.getElementById('zoomedImage');
-
-    document.querySelectorAll('.main-img').forEach(img => {
-      img.addEventListener('click', () => {
-        zoomedImage.src = img.src;
-        overlay.style.display = 'flex';
-      });
-    });
-
-    overlay.addEventListener('click', () => {
-      overlay.style.display = 'none';
-    });
   </script>
+
 </body>
 </html>
