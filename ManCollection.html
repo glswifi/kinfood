@@ -17,7 +17,6 @@
       padding-top: 60px;
     }
 
-    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -52,7 +51,6 @@
       cursor: pointer;
     }
 
-    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0;
@@ -82,7 +80,6 @@
       background-color: #f0f0f0;
     }
 
-    /* WhatsApp Floating */
     .whatsapp-float {
       position: fixed;
       bottom: 70px;
@@ -104,7 +101,6 @@
       background-color: #20b358;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -124,7 +120,6 @@
       color: #000;
     }
 
-    /* Collection Layout - Horizontal Cards */
     .collections.horizontal {
       display: flex;
       flex-direction: column;
@@ -185,10 +180,6 @@
       height: auto;
       object-fit: contain;
       transition: transform 0.3s ease;
-    }
-
-    .product-image:hover {
-      transform: scale(1.1);
       cursor: zoom-in;
     }
 
@@ -225,18 +216,38 @@
     .detail-btn:hover {
       background-color: #388e3c;
     }
+
+    /* Image zoom overlay */
+    .image-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .image-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 0 20px #fff;
+      border-radius: 10px;
+      cursor: zoom-out;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <i class="fas fa-store icon-left"></i>
     <div class="header-content">Collection pour Homme</div>
     <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
   </header>
 
-  <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <a href="https://glswifi.github.io/kinfood/MainPage">Accueil</a>
     <a href="https://glswifi.github.io/kinfood/Clothing">Habillement</a>
@@ -244,29 +255,26 @@
     <a href="https://glswifi.github.io/kinfood/Contact">Contact</a>
   </div>
 
-  <!-- Product Collection -->
   <div class="collections horizontal">
-    <!-- Produit 1 -->
     <div class="product-card horizontal-card">
       <div class="image-section">
-        <img src="https://imgur.com/k8Vv425.jpg" class="product-image main-img" alt="Produit 1">
+        <img src="https://imgur.com/k8Vv425.jpg" class="product-image main-img" alt="Montre Classique">
         <div class="thumbnail-row">
-          <img src="https://imgur.com/rjROC85.jpg" class="thumb" data-main="https://imgur.com/k8Vv425.jpg" alt="Vue 1A">
-          <img src="https://imgur.com/rjROC85.jpg" class="thumb" data-main="https://imgur.com/k8Vv425.jpg" alt="Vue 1B">
+          <img src="https://imgur.com/rjROC85.jpg" class="thumb" data-main="https://imgur.com/rjROC85.jpg" alt="Vue 1A">
+          <img src="https://imgur.com/k8Vv425.jpg" class="thumb" data-main="https://imgur.com/k8Vv425.jpg" alt="Vue 1B">
         </div>
       </div>
       <div class="info-section">
         <div class="product-name">Montre Classique</div>
         <div class="product-desc">Montre en acier inoxydable avec bracelet en cuir véritable. Élégante et robuste.</div>
         <div class="product-price">Prix : 59,99 €</div>
-        <a href="#" class="detail-btn">Voir les détails</a>
+        <a href="#" class="detail-btn">Ajouter au panier</a>
       </div>
     </div>
 
-    <!-- Produit 2 -->
     <div class="product-card horizontal-card">
       <div class="image-section">
-        <img src="https://via.placeholder.com/300x200?text=Produit+2" class="product-image main-img" alt="Produit 2">
+        <img src="https://via.placeholder.com/300x200?text=Produit+2" class="product-image main-img" alt="Chemise Slim Fit">
         <div class="thumbnail-row">
           <img src="https://via.placeholder.com/80x60?text=2A" class="thumb" data-main="https://via.placeholder.com/300x200?text=Produit+2" alt="Vue 2A">
           <img src="https://via.placeholder.com/80x60?text=2B" class="thumb" data-main="https://via.placeholder.com/300x200?text=Produit+2B" alt="Vue 2B">
@@ -276,27 +284,29 @@
         <div class="product-name">Chemise Slim Fit</div>
         <div class="product-desc">Chemise élégante, coupe moderne, parfaite pour les occasions professionnelles.</div>
         <div class="product-price">Prix : 39,90 €</div>
-        <a href="#" class="detail-btn">Voir les détails</a>
+        <a href="#" class="detail-btn">Ajouter au panier</a>
       </div>
     </div>
   </div>
 
-  <!-- WhatsApp Button -->
   <a class="whatsapp-float" href="https://wa.me/1234567890" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Footer -->
   <footer>
     <div class="social-icons">
-      <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://tiktok.com/@yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@yourpage" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
     <h5>&copy; 2025 par GLS SMARTHOME Tous droits réservés.</h5>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Image Zoom Overlay -->
+  <div class="image-overlay" id="imageOverlay">
+    <img src="" alt="Zoom" id="zoomedImage">
+  </div>
+
   <script>
     const sidebar = document.getElementById('sidebar');
     const hamburger = document.getElementById('hamburgerBtn');
@@ -311,7 +321,6 @@
       }
     });
 
-    // Miniatures cliquables
     document.querySelectorAll('.product-card').forEach(card => {
       const mainImg = card.querySelector('.main-img');
       const thumbs = card.querySelectorAll('.thumb');
@@ -321,6 +330,20 @@
           mainImg.src = thumb.dataset.main;
         });
       });
+    });
+
+    const overlay = document.getElementById('imageOverlay');
+    const zoomedImage = document.getElementById('zoomedImage');
+
+    document.querySelectorAll('.main-img').forEach(img => {
+      img.addEventListener('click', () => {
+        zoomedImage.src = img.src;
+        overlay.style.display = 'flex';
+      });
+    });
+
+    overlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
     });
   </script>
 </body>
