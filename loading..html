@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Circular Motion + Typing Text + Skip Button</title>
+  <style>
+    body {
+      background-color: black;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: monospace;
+      color: white;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-top: auto;
+      margin-bottom: 60px;
+    }
+
+    .circle {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbit 4s linear infinite, colorShift 4s linear infinite;
+    }
+
+    @keyframes orbit {
+      0% {
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translateX(120px) rotate(-360deg);
+      }
+    }
+
+    @keyframes colorShift {
+      0% { background-color: red; }
+      25% { background-color: cyan; }
+      50% { background-color: yellow; }
+      75% { background-color: violet; }
+      100% { background-color: red; }
+    }
+
+    .typing {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      width: 0;
+      font-size: 24px;
+      animation: typing 4s steps(28, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 260px; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .skip-button {
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 20px;
+      background-color: black;
+      color: red;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .skip-button:hover {
+      background-color: #ccc;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="circle"></div>
+    <div class="typing">Ici c'est KINFOOD...</div>
+  </div>
+
+<button class="skip-button" onclick="window.location.href='https://google.com/';">Skip</button>
+
+
+  <script>
+    function scrollToSection() {
+      document.getElementById("next-section").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
